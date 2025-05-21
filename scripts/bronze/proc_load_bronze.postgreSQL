@@ -1,0 +1,34 @@
+/*
+=============================================================================================
+Stored Procedure: Load Bronze Layer (Source -> Bronze)
+=============================================================================================
+Script Purpose:
+This stored procedure loads data into the 'bronze' schema from external CSV files.
+It performs the following actions:
+  - Truncates the bronze tables before loading data.
+=============================================================================================
+*/
+
+-- bronze.employee_info
+TRUNCATE TABLE bronze.employee_info
+COPY bronze.employee_info(employee_id,first_name,last_name,age,department,
+			 department_position,work_location,monthly_salary)
+FROM '/Users/johanduran/Desktop/datasets/employee survey/employee_info.csv'
+DELIMITER ','
+CSV HEADER;
+
+-- bronze.satisfaction_scores
+TRUNCATE TABLE bronze.satisfaction_scores
+COPY bronze.employee_info(employee_id,first_name,last_name,age,department,
+			 department_position,work_location,monthly_salary)
+FROM '/Users/johanduran/Desktop/datasets/employee survey/satisfaction_scores.csv'
+DELIMITER ','
+CSV HEADER;
+
+-- TABLE bronze.perfromance_scores
+TRUNCATE TABLE bronze.perfromance_scores
+COPY bronze.employee_info(employee_id,first_name,last_name,age,department,
+			 department_position,work_location,monthly_salary)
+FROM '/Users/johanduran/Desktop/datasets/employee survey/performance.csv'
+DELIMITER ','
+CSV HEADER;
