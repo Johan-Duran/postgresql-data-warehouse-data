@@ -1,0 +1,41 @@
+/*
+====================================================================================================
+DDL Script: Create Bronze Tables
+====================================================================================================
+Script Purpose:
+This script creates tables in the 'bronze'
+schema, dropping existing tables
+if they already exist.
+Run this script to re-define the DDL structure of 'bronze' Tables
+====================================================================================================
+*/
+
+DROP TABLE IF EXISTS bronze.employee_info ;
+CREATE TABLE bronze.employee_info 
+(
+employee_id VARCHAR,
+first_name VARCHAR,
+last_name VARCHAR,
+age INT,
+department VARCHAR,
+department_position VARCHAR,
+work_location VARCHAR,
+monthly_salary REAL );
+
+DROP TABLE IF EXISTS bronze.satisfaction_scores ;
+CREATE TABLE bronze.satisfaction_scores 
+(
+employee_id VARCHAR,
+management_satisfaction REAL,
+work_environment_satisfaction REAL,
+work_life_balance_satisfaction REAL,
+recognition_satisfaction REAL
+);
+
+DROP TABLE IF EXISTS bronze.perfromance_scores ;
+CREATE TABLE bronze.perfromance_scores 
+(
+employee_id VARCHAR,
+performance_score REAL
+);
+
